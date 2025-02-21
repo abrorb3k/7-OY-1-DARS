@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart, removeFromCart,clearCart } from "../redux/cartSlice";
 
-const ProductList = () => {
+const cart = () => {
   const dispatch = useDispatch();
 
   const [productName, setProductName] = useState("");
@@ -51,7 +51,12 @@ const ProductList = () => {
           value={productPrice}
           onChange={(e) => setProductPrice(e.target.value)}
         />
-        <button onClick={handleAddToCart}>Qo'shish</button>
+        <button
+          className="bg-blue-600 cursor-pointer mx-3 p-1 rounded-2xl hover:bg-blue-800 duration-300"
+          onClick={handleAddToCart}
+        >
+          Qo'shish
+        </button>
       </div>
 
       <div>
@@ -63,7 +68,7 @@ const ProductList = () => {
               <li className="flex justify-between w-[400px]" key={item.id}>
                 {item.name} - ${item.price}
                 <button
-                  className="bg-red-600 cursor-pointer mx-3 p-1 rounded-2xl"
+                  className="bg-red-600 cursor-pointer mx-3 p-1 rounded-2xl hover:bg-red-800 duration-300"
                   onClick={() => handleRemoveFromCart(item.id)}
                 >
                   o'chirish
@@ -74,11 +79,9 @@ const ProductList = () => {
         )}
       </div>
       <div>
-        <h3 className="font-bold">
-          Umumiy narx: ${totalAmount}
-        </h3>
+        <h3 className="font-bold">Umumiy narx: ${totalAmount}</h3>
         <button
-          className="bg-gray-600 cursor-pointer mx-3 p-2 rounded-2xl"
+          className="bg-gray-600 cursor-pointer mx-3 p-2 rounded-2xl hover:bg-gray-800 duration-300"
           onClick={handleClearCart}
         >
           Kartni tozalash
@@ -88,4 +91,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default cart;

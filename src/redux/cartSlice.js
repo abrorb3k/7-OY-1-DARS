@@ -9,12 +9,12 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addToCart(state, action) {
+    addToCart:function(state, action) {
       const newItem = action.payload;
       state.items.push(newItem);
       state.totalAmount += newItem.price;
     },
-    removeFromCart(state, action) {
+    removeFromCart: function(state, action) {
       const id = action.payload;
       const itemToRemove = state.items.find((item) => item.id === id);
       if (itemToRemove) {
@@ -22,7 +22,7 @@ const cartSlice = createSlice({
         state.totalAmount -= itemToRemove.price;
       }
     },
-    clearCart(state) {
+    clearCart: function(state) {
       state.items = [];
       state.totalAmount = 0;
     },

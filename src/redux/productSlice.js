@@ -19,5 +19,5 @@ const productsSllice = createSlice({
   },
 });
 
-export const {add, deletee, edit} = productsSllice.actions;
+export const {add, deletee} = productsSllice.actions;
 export default productsSllice.reducer;
